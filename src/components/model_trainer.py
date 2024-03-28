@@ -14,7 +14,7 @@ from sklearn.neighbors import KNeighborsRegressor
 from sklearn.tree import DecisionTreeRegressor
 from xgboost import XGBRegressor
 
-from src.exception import CustomException
+from src.exceptions import CustomException
 from src.logger import logging
 
 from src.utils import save_object,evaluate_models
@@ -85,7 +85,7 @@ class ModelTrainer:
             }
 
             model_report:dict=evaluate_models(X_train=X_train,y_train=y_train,X_test=X_test,y_test=y_test,
-                                             models=models,param=params)
+                                             models=models,params=params)
             
             ## To get best model score from dict
             best_model_score = max(sorted(model_report.values()))
